@@ -183,8 +183,27 @@ float expressionCalculate(string s)
 {
     return posfixCompute(InfixToPostfix(s));
 }
-
-
+float record(int answer,int input)//记录正确题数 
+{
+	int t=0;
+	if(answer==input)
+	{
+		t++;
+	}
+	return t;
+}
+void result(int t,int f)//结果 
+{
+	char end;
+	cout<<"题已答完，输入Q显示测试结果"<<endl;
+	cin>>end;
+	if(end=='Q'||end=='q')
+		{
+		    cout<<"恭喜你答对了："<<t<<"题!"<<endl;
+			cout<<"很遗憾你打错了："<<f<<"题!"<<endl; 
+	    }
+	return ;
+}
 int main()
 {
     srand(unsigned(time(0)));
@@ -224,21 +243,10 @@ int main()
         cout<<'('<<i+1<<')'<<'\t'<<equation[i]<<'=';
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
-        if(input[i]==answer[i])
-        {
-        	t++;
-		}
+        t+=record(answer[i],input[i]);
 		f=count-t;
 		if(i==count-1)
-		{
-		    cout<<"题已答完，输入Q显示测试结果"<<endl;
-		    cin>>end;
-		    if(end=='Q'||end=='q')
-		    {
-		    	cout<<"恭喜你答对了："<<t<<"题!"<<endl;
-				cout<<"很遗憾你打错了："<<f<<"题!"<<endl; 
-			}
-		}
+		result(t,f);
     }
 
 
