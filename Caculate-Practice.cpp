@@ -168,7 +168,7 @@ float posfixCompute(string s)
                 tempResult.push(tempNum);
                 break;
             case '#':
-                currNum = atof(strNum.c_str());//in c++11, use currNum = std::stof(strNUm);
+                currNum = atof(strNum.c_str());
                 strNum.clear();
                 tempResult.push(currNum);
                 break;
