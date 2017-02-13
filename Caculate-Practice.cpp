@@ -168,7 +168,7 @@ float posfixCompute(string s)
                 tempResult.push(tempNum);
                 break;
             case '#':
-                currNum = atof(strNum.c_str());
+                currNum = atof(strNum.c_str());//in c++11, use currNum = std::stof(strNUm);
                 strNum.clear();
                 tempResult.push(currNum);
                 break;
@@ -188,10 +188,10 @@ float expressionCalculate(string s)
 int main()
 {
     srand(unsigned(time(0)));
-    int count,i,j,n1,n2,exchange;
+    int count,i,j,n1,n2,exchange,t=0,f;
     string str_n1,str_n2,temp;
-    char symbol;
-    cout<<"输入生成题目数量:";
+    char symbol,end;
+    cout<<"请输入即将生成题目的数量:";
     cin>>count;
     string equation[count];
     float *answer = new float[count];
@@ -221,9 +221,24 @@ int main()
             symbol=creat_symbol();
             equation[i]=connect(str_n1,str_n2,symbol);
         }
-        cout<<equation[i]<<'=';
+        cout<<'('<<i+1<<')'<<'\t'<<equation[i]<<'=';
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
+        if(input[i]==answer[i])
+        {
+        	t++;
+		}
+		f=count-t;
+		if(i==count-1)
+		{
+		    cout<<"题已答完，输入Q显示测试结果"<<endl;
+		    cin>>end;
+		    if(end=='Q'||end=='q')
+		    {
+		    	cout<<"恭喜你答对了："<<t<<"题!"<<endl;
+				cout<<"很遗憾你打错了："<<f<<"题!"<<endl; 
+			}
+		}
     }
 
 
@@ -231,4 +246,3 @@ int main()
     delete [] input;
 return 0;
 }
-
