@@ -168,7 +168,7 @@ float posfixCompute(string s)
                 tempResult.push(tempNum);
                 break;
             case '#':
-                currNum = atof(strNum.c_str());//in c++11, use currNum = std::stof(strNUm);
+                currNum = atof(strNum.c_str());
                 strNum.clear();
                 tempResult.push(currNum);
                 break;
@@ -195,14 +195,20 @@ float record(int answer,int input)//记录正确题数
 void result(int t,int f,int language)//显示结果 
 {
 	char end;
+<<<<<<< HEAD
 	if(language==1)//中文的显示结果 
 	{
 		cout<<"题已答完，输入'Q'显示测试结果"<<endl;
 		cin>>end;
 		if(end=='Q'||end=='q')
+=======
+	cout<<"题已答完，输入Q(或q)显示测试结果"<<endl;
+	cin>>end;
+	if(end=='Q'||end=='q')
+>>>>>>> origin/master
 		{
 		    cout<<"恭喜你答对了："<<t<<"题!"<<endl;
-			cout<<"很遗憾你打错了："<<f<<"题!"<<endl; 
+			cout<<"很遗憾你打错了："<<f<<"题!"; 
 	    }
 		
 	}
@@ -272,7 +278,11 @@ int main()
             symbol=creat_symbol();
             equation[i]=connect(str_n1,str_n2,symbol);
         }
+<<<<<<< HEAD
         cout<<'<'<<i+1<<">. "<<equation[i]<<'=';
+=======
+        cout<<'('<<i+1<<')'<<' '<<equation[i]<<'=';
+>>>>>>> origin/master
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
         t+=record(answer[i],input[i]);//正确题目数量 
