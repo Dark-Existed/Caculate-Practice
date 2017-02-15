@@ -192,20 +192,19 @@ float record(int answer,int input)//记录正确题数
 	}
 	return t;
 }
+
 void result(int t,int f,int language)//显示结果 
 {
 	char end;
-<<<<<<< HEAD
 	if(language==1)//中文的显示结果 
 	{
 		cout<<"题已答完，输入'Q'显示测试结果"<<endl;
 		cin>>end;
 		if(end=='Q'||end=='q')
-=======
+           
 	cout<<"题已答完，输入Q(或q)显示测试结果"<<endl;
 	cin>>end;
 	if(end=='Q'||end=='q')
->>>>>>> origin/master
 		{
 		    cout<<"恭喜你答对了："<<t<<"题!"<<endl;
 			cout<<"很遗憾你打错了："<<f<<"题!"; 
@@ -248,7 +247,7 @@ int main()
     cout<<"Please enter the serial number selection language: 1.Chinese  2.English" <<endl;
 	cin>>language;
     if(language==1)cout<<"请输入即将生成题目的数量:";
-    else cout<<"Please enter the number of topics to be generated："; 
+    else cout<<"Please enter the number of topics to be generated:"; 
     cin>>count;
     string equation[count];
     float *answer = new float[count];
@@ -278,11 +277,7 @@ int main()
             symbol=creat_symbol();
             equation[i]=connect(str_n1,str_n2,symbol);
         }
-<<<<<<< HEAD
         cout<<'<'<<i+1<<">. "<<equation[i]<<'=';
-=======
-        cout<<'('<<i+1<<')'<<' '<<equation[i]<<'=';
->>>>>>> origin/master
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
         t+=record(answer[i],input[i]);//正确题目数量 
