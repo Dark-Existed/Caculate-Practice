@@ -198,11 +198,8 @@ void result(int t,int f,int language)//显示结果
 	char end;
 	if(language==1)//中文的显示结果 
 	{
-        cout<<"题已答完，输入'Q'显示测试结果"<<endl;
+        cout<<"题已答完，输入'Q'(或'q')显示测试结果"<<endl;
 		cin>>end;
-		if(end=='Q'||end=='q')   
-        cout<<"题已答完，输入Q(或q)显示测试结果"<<endl;
-        cin>>end;
         if(end=='Q'||end=='q')
 		{
 		    cout<<"恭喜你答对了："<<t<<"题!"<<endl;
@@ -211,7 +208,7 @@ void result(int t,int f,int language)//显示结果
     }
 	else if(language==2)//英文的结果显示 
 	{
-		cout<<"Questions have been answered, enter the <Q> display test results"<<endl; 
+		cout<<"Questions have been answered, enter the 'Q'(or 'q') display test results"<<endl; 
 		cin>>end;
 		if(end=='Q'||end=='q')
 		{
