@@ -183,7 +183,9 @@ float expressionCalculate(string s)
 {
     return posfixCompute(InfixToPostfix(s));
 }
-float record(float answer,float input,int language)//记录正确题数 
+
+//记录正确题数
+int record(float answer,float input,int language) 
 {
 	int t=0;
 	if(answer==input)
@@ -212,7 +214,8 @@ float record(float answer,float input,int language)//记录正确题数
 	return t;
 }
 
-void result(int t,int f,int language)//显示结果 
+//显示结果 
+void result(int t,int f,int language)
 {
 	char end;
 	if(language==1)//中文的显示结果 
@@ -297,11 +300,15 @@ int main()
         cout<<'<'<<i+1<<">. "<<equation[i]<<'=';
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
+        //四舍五入保留两位小数
         temp2=(float)(answer[i]*100+0.5f);
-        answer[i]=(float)temp2/100;//四舍五入保留两位小数
-        t+=record(answer[i],input[i],language);//正确题目数量和是否正确的提示
-		f=count-t;//错误题目数量 
-		if(i==count-1)//作答结束后调用函数显示结果 
+        answer[i]=(float)temp2/100;
+        //正确题目数量和是否正确的提示
+        t+=record(answer[i],input[i],language);
+        //错误题目数量 
+		f=count-t;
+        //作答结束后调用函数显示结果 
+		if(i==count-1)
 		result(t,f,language);
     }
     delete [] answer;
