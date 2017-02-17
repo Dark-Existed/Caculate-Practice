@@ -239,6 +239,8 @@ int main()
     int count,i,j,n1,n2,exchange,t=0,f,language;
     string str_n1,str_n2,temp;
     char symbol,end;
+    cout<<"如果结果为小数，请精确到小数点后一位。\nIf the result is a decimal, please be accurate to one decimal place."<<endl;
+    cout<<"============================================================================"<<endl;
     cout<<"请输入编号选择语言：1.中文  2.英文"<<endl;
     cout<<"Please enter the serial number selection language: 1.Chinese  2.English" <<endl;
 	cin>>language;
