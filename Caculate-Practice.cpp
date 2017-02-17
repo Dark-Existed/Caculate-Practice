@@ -183,13 +183,32 @@ float expressionCalculate(string s)
 {
     return posfixCompute(InfixToPostfix(s));
 }
-float record(int answer,int input)//记录正确题数 
+float record(float answer,float input,int language)//记录正确题数 
 {
 	int t=0;
 	if(answer==input)
 	{
-		t++;
+        t++;
+        if (language==1)
+        {
+            cout<<"答案正确"<<endl;
+        }
+        else
+        {
+            cout<<"The answer is correct."<<endl;
+        }
 	}
+    else
+    {
+        if (language==1)
+        {
+            cout<<"答案错误，正确答案为："<<answer<<endl;
+        }
+        else
+        {
+            cout<<"The answer is wrong,the correct answer is:"<<answer<<endl;
+        }
+    }
 	return t;
 }
 
@@ -212,7 +231,7 @@ void result(int t,int f,int language)//显示结果
 		cin>>end;
 		if(end=='Q'||end=='q')
 		{
-			if(t>1)//选择英文question是否加s 
+			if(t>1)//选择英文question是否加s
 			{
 				cout<<"Congratulations on "<<t<<" questions!"<<endl;
 			}
@@ -236,10 +255,10 @@ void result(int t,int f,int language)//显示结果
 int main()
 {
     srand(unsigned(time(0)));
-    int count,i,j,n1,n2,exchange,t=0,f,language;
+    int count,i,j,n1,n2,exchange,t=0,f,language,temp2;
     string str_n1,str_n2,temp;
     char symbol,end;
-    cout<<"如果结果为小数，请精确到小数点后一位。\nIf the result is a decimal, please be accurate to one decimal place."<<endl;
+    cout<<"如果结果为小数，请精确到小数点后2位。\nIf the result is a decimal, please be accurate to two decimal place."<<endl;
     cout<<"============================================================================"<<endl;
     cout<<"请输入编号选择语言：1.中文  2.英文"<<endl;
     cout<<"Please enter the serial number selection language: 1.Chinese  2.English" <<endl;
@@ -278,13 +297,13 @@ int main()
         cout<<'<'<<i+1<<">. "<<equation[i]<<'=';
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
-        t+=record(answer[i],input[i]);//正确题目数量 
+        temp2=(float)(answer[i]*100+0.5f);
+        answer[i]=(float)temp2/100;//四舍五入保留两位小数
+        t+=record(answer[i],input[i],language);//正确题目数量和是否正确的提示
 		f=count-t;//错误题目数量 
 		if(i==count-1)//作答结束后调用函数显示结果 
 		result(t,f,language);
     }
-
-
     delete [] answer;
     delete [] input;
 return 0;
