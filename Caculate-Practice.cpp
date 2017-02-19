@@ -301,7 +301,7 @@ int main()
         cin>>input[i];
         answer[i]=expressionCalculate(equation[i]);
         //四舍五入保留两位小数
-        temp2=(float)(answer[i]*100+0.5f);
+        temp2=(int)(answer[i]*100+0.5f);
         answer[i]=(float)temp2/100;
         //正确题目数量和是否正确的提示
         t+=record(answer[i],input[i],language);
