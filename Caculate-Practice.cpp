@@ -263,8 +263,8 @@ void result(int t,int f)
 	cin>>end;
     if(end=='Q'||end=='q')
 	{
-		cout<<LanguageRead[5]<<t" "<<LanguageRead[7]<<endl;
-		cout<<LanguageRead[6]<<f" "<<LanguageRead[7]; 
+		cout<<LanguageRead[5]<<t<<LanguageRead[7]<<endl;
+		cout<<LanguageRead[6]<<f<<LanguageRead[7]; 
 	}		   
 	return ;
 }

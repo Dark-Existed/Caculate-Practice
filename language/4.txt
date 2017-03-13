@@ -5,4 +5,4 @@ Mauvaise r¨¦ponse, la bonne r¨¦ponse est:
 Des questions ont ¨¦t¨¦ r¨¦pondu, entrez Q '(ou q') montre les r¨¦sultats du test
 F¨¦licitations, vous avez obtenu:
 Je suis d¨¦sol¨¦ que vous avez le mal:
-titre.
+ titre.

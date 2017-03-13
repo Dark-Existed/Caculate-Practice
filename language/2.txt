@@ -3,5 +3,6 @@ Please enter the number of topics to be generated:
 The answer is correct.
 The answer is wrong,the correct answer is:
 Questions have been answered, enter the 'Q'(or 'q') display test results
-It is a pity that you missed
-question(s).
+"Congratulations on  
+It is a pity that you missed 
+ question(s).
