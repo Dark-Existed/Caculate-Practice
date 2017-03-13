@@ -1,0 +1,8 @@
+Si le r¨¦sultat est un nombre d¨¦cimal, s'il vous pla?t ¨ºtre pr¨¦cis ¨¤ deux d¨¦cimales.
+S'il vous pla?t entrez le nombre de sujets qui seront g¨¦n¨¦r¨¦s:
+bonne r¨¦ponse
+Mauvaise r¨¦ponse, la bonne r¨¦ponse est:
+Des questions ont ¨¦t¨¦ r¨¦pondu, entrez Q '(ou q') montre les r¨¦sultats du test
+F¨¦licitations, vous avez obtenu:
+Je suis d¨¦sol¨¦ que vous avez le mal:
+titre.

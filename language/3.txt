@@ -1,0 +1,11 @@
+Wenn das Ergebnis eine Dezimalzahl ist, bitte auf zwei Dezimalstellen genau sein.
+Bitte geben Sie die Anzahl der Themen, die generiert werden:
+Die richtige Antwort
+Falsche Antwort, die richtige Antwort ist:
+Fragen beantwortet wurden, geben Sie Q '(oder q') zeigt die Testergebnisse 
+Herzlichen Gl¨¹ckwunsch , Sie haben es:
+Es tut mir leid Sie die falsche haben:
+Titel.
+
+
+

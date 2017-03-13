@@ -1,10 +1,14 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
-#include <string>
+#include <cstring>
 #include <stack>
 #include <map> 
+#include <fstream>
 using namespace std;
+
+char LanguageRead[20][200];
+char location[100]="";
 
 // 随机符号
 char creat_symbol()
@@ -178,96 +182,113 @@ float posfixCompute(string s)
 }
 
 
+//语言列表
+void LanguageList()
+{
+    int num = 1;
+    char Language[20];
+    fstream file;
+    file.open("language\\Languagelist.txt");
+
+    while(file.getline(Language,20))
+    {
+        cout<<num<<"."<<Language<<endl;
+        num++;
+    }
+
+    file.close();
+}
+
+bool JudgeLanguage(char *llanguage)
+{
+    
+    strcat(location,"language\\");
+    strcat(location,llanguage);
+    strcat(location,".txt");
+
+    fstream file;
+    file.open(location);
+
+    if (file.is_open())
+    {
+        file.close();
+        return true;
+    }
+    else
+        return NULL;
+}
+
+//将文件读入数组中
+void dispose(char *location)
+{
+    fstream File;
+    File.open(location);
+    
+    int i;
+    for (i = 0;File.getline(LanguageRead[i],200);  ++i)
+    {}
+    File.close();
+}
+
+
+
 // 表达式计算
 float expressionCalculate(string s)
 {
     return posfixCompute(InfixToPostfix(s));
 }
 
+
 //记录正确题数
-int record(float answer,float input,int language) 
+int record(float answer,float input) 
 {
 	int t=0;
 	if(answer==input)
 	{
         t++;
-        if (language==1)
-        {
-            cout<<"答案正确"<<endl;
-        }
-        else
-        {
-            cout<<"The answer is correct."<<endl;
-        }
+        cout<<LanguageRead[2]<<endl;
 	}
     else
     {
-        if (language==1)
-        {
-            cout<<"答案错误，正确答案为："<<answer<<endl;
-        }
-        else
-        {
-            cout<<"The answer is wrong,the correct answer is:"<<answer<<endl;
-        }
+        cout<<LanguageRead[3]<<answer<<endl;       
     }
 	return t;
 }
 
 //显示结果 
-void result(int t,int f,int language)
+void result(int t,int f)
 {
 	char end;
-	if(language==1)//中文的显示结果 
+    cout<<LanguageRead[4]<<endl;
+	cin>>end;
+    if(end=='Q'||end=='q')
 	{
-        cout<<"题已答完，输入'Q'(或'q')显示测试结果"<<endl;
-		cin>>end;
-        if(end=='Q'||end=='q')
-		{
-		    cout<<"恭喜你答对了："<<t<<"题!"<<endl;
-			cout<<"很遗憾你打错了："<<f<<"题!"; 
-	    }		
-    }
-	else if(language==2)//英文的结果显示 
-	{
-		cout<<"Questions have been answered, enter the 'Q'(or 'q') display test results"<<endl; 
-		cin>>end;
-		if(end=='Q'||end=='q')
-		{
-			if(t>1)//选择英文question是否加s
-			{
-				cout<<"Congratulations on "<<t<<" questions!"<<endl;
-			}
-			else if(t<2)
-			{
-				cout<<"Congratulations on "<<t<<" question!"<<endl;
-			}
-			if(f>1)
-			{
-				cout<<"It is a pity that you missed "<<f<<" questions!"<<endl; 
-			}
-			else if(f<2)
-			{
-				cout<<"It is a pity that you missed "<<f<<" question!"<<endl; 
-			}
-	    }
-	}
+		cout<<LanguageRead[5]<<t" "<<LanguageRead[7]<<endl;
+		cout<<LanguageRead[6]<<f" "<<LanguageRead[7]; 
+	}		   
 	return ;
 }
 
 int main()
 {
     srand(unsigned(time(0)));
-    int count,i,j,n1,n2,exchange,t=0,f,language,temp2;
+    int count,i,j,n1,n2,exchange,t=0,f,temp2;
     string str_n1,str_n2,temp;
     char symbol,end;
-    cout<<"如果结果为小数，请精确到小数点后2位。\nIf the result is a decimal, please be accurate to two decimal place."<<endl;
+    char clanguage[1];
     cout<<"============================================================================"<<endl;
-    cout<<"请输入编号选择语言：1.中文  2.英文"<<endl;
-    cout<<"Please enter the serial number selection language: 1.Chinese  2.English" <<endl;
-	cin>>language;
-    if(language==1)cout<<"请输入即将生成题目的数量:";
-    else cout<<"Please enter the number of topics to be generated:"; 
+    LanguageList();
+	cin>>clanguage;
+
+    while(JudgeLanguage(clanguage)==false)
+    {
+        cout<<"Your input is wrong or software does not support your language.  "<<endl;
+        cin>>clanguage;
+    }        
+    dispose(location);
+
+    cout<<LanguageRead[0]<<endl;
+    cout<<LanguageRead[1];
     cin>>count;
     string equation[count];
     float *answer = new float[count];
@@ -304,12 +325,12 @@ int main()
         temp2=(int)(answer[i]*100+0.5f);
         answer[i]=(float)temp2/100;
         //正确题目数量和是否正确的提示
-        t+=record(answer[i],input[i],language);
+        t+=record(answer[i],input[i]);
         //错误题目数量 
 		f=count-t;
         //作答结束后调用函数显示结果 
 		if(i==count-1)
-		result(t,f,language);
+		result(t,f);
     }
     delete [] answer;
     delete [] input;
