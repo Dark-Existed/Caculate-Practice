@@ -276,6 +276,7 @@ int main()
     string str_n1,str_n2,temp;
     char symbol,end;
     char clanguage[1];
+    cout<<"Enter the serial number to select the language."<<endl;
     cout<<"============================================================================"<<endl;
     LanguageList();
 	cin>>clanguage;
