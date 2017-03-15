@@ -279,8 +279,8 @@ int main()
     cout<<"Enter the serial number to select the language."<<endl;
     cout<<"============================================================================"<<endl;
     LanguageList();
+    cout<<"============================================================================"<<endl;
 	cin>>clanguage;
-
     while(JudgeLanguage(clanguage)==false)
     {
         cout<<"Your input is wrong or software does not support your language.  "<<endl;
